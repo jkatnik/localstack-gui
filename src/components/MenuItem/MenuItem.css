@@ -1,9 +1,24 @@
 .MenuItem {
     padding: 5px;
     margin: 5px;
-    border: 1px solid white;
+    border: 1px solid #DDD;
     border-radius: 5px;
     min-width: 100px;
     text-align: center;
     cursor: pointer;
+}
+
+.MenuItem a, .MenuItem a:visited {
+    color: #DDD;
+    text-decoration: none;
+}
+
+.MenuItem:hover > a {
+    color: white;
+    font-weight: bold;
+}
+
+.MenuItem:hover {
+    box-shadow: 0 0 5px lightskyblue;
+    border-color: white;
 }
