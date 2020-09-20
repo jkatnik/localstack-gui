@@ -16,7 +16,7 @@ function App() {
           <MenuItem label="DynamoDB" linkTo="dynamoDb"/>
           <MenuItem label="SNS" linkTo="sns"/>
           <MenuItem label="Kinesis" linkTo="kinesis"/>
-          <MenuItem label="Config" linkTo="config"/>
+          <MenuItem label="Config" linkTo="config" className="config"/>
         </div>
         
         <Route path="/dynamoDb">

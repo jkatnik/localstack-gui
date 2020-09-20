@@ -11,5 +11,11 @@
 }
 
 .topMenu {
-  display: inline-flex;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
+}
+
+.config {
+  margin-left: auto;
 }
