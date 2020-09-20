@@ -1,0 +1,9 @@
+.MenuItem {
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid white;
+    border-radius: 5px;
+    min-width: 75px;
+    text-align: center;
+    cursor: pointer;
+}

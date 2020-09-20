@@ -1,24 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
+import MenuItem from './components/MenuItem/MenuItem'
 import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import DynamoDb from './containers/DynamoDb/DynaomDb';
+import Sns from './containers/Sns/Sns';
+import Kinesis from './containers/Kinesis/Kinesis';
+import Config from './containers/Config/Config';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <div class="topMenu">
+          <MenuItem label="DynamoDB" linkTo="dynamoDb"/>
+          <MenuItem label="SNS" linkTo="sns"/>
+          <MenuItem label="Kinesis" linkTo="kinesis"/>
+          <MenuItem label="Config" linkTo="config"/>
+        </div>
+        
+        <Route path="/dynamoDb">
+          <DynamoDb />
+        </Route>
+
+        <Route path="/sns">
+          <Sns />
+        </Route>
+
+        <Route path="/kinesis">
+          <Kinesis />
+        </Route>
+        
+        <Route path="/config">
+          <Config />
+        </Route>
+
+      </Router>
     </div>
   );
 }
