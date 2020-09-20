@@ -12,12 +12,12 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <div class="topMenu">
+        <nav class="topMenu">
           <MenuItem label="DynamoDB" linkTo="dynamoDb"/>
           <MenuItem label="SNS" linkTo="sns"/>
           <MenuItem label="Kinesis" linkTo="kinesis"/>
           <MenuItem label="Config" linkTo="config" className="config"/>
-        </div>
+        </nav>
         
         <Route path="/dynamoDb">
           <DynamoDb />
