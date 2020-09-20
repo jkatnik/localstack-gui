@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <nav class="topMenu">
+        <nav className="topMenu">
           <MenuItem label="DynamoDB" linkTo="dynamoDb"/>
           <MenuItem label="SNS" linkTo="sns"/>
           <MenuItem label="Kinesis" linkTo="kinesis"/>
