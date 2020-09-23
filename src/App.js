@@ -16,7 +16,6 @@ function App() {
       secretAccessKey: 'any'
     }
   });
-
   return (
     <div className="App">
       <Router>
