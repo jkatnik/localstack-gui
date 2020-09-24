@@ -13,11 +13,11 @@ export default class DynamoDb extends Component {
   }
 
   componentDidMount = () => {
-    const ddb = new AWS.DynamoDB({
-      apiVersion: '2012-08-10',
-      endpoint: 'http://localhost:4566'
-    });
-    AppScope.register('dynamoClient', ddb);
+    AppScope.registerIfNotExist('dynamoClient', () =>
+      new AWS.DynamoDB({
+        apiVersion: '2012-08-10',
+        endpoint: 'http://localhost:4566'
+      }));
     
     const timerId = setInterval(this.poolTableNames, 1000);
     this.setState({

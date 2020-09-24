@@ -4,6 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import DynamoDb from './containers/DynamoDb/DynamoDb';
 import Sns from './containers/Sns/Sns';
+import Sqs from './containers/Sqs/Sqs';
 import Kinesis from './containers/Kinesis/Kinesis';
 import Config from './containers/Config/Config';
 import * as AWS from 'aws-sdk';
@@ -22,6 +23,7 @@ function App() {
         <nav className="topMenu">
           <MenuItem label="DynamoDB" linkTo="/dynamoDb"/>
           <MenuItem label="SNS" linkTo="/sns"/>
+          <MenuItem label="SQS" linkTo="/sqs"/>
           <MenuItem label="Kinesis" linkTo="/kinesis"/>
           <MenuItem label="Config" linkTo="/config" className="config"/>
         </nav>
@@ -32,6 +34,10 @@ function App() {
 
         <Route path="/sns">
           <Sns />
+        </Route>
+
+        <Route path="/sqs">
+          <Sqs />
         </Route>
 
         <Route path="/kinesis">

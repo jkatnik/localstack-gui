@@ -8,3 +8,10 @@ export function register(key, object) {
 export function get(key) {
     return objects[key]
 }
+
+export function registerIfNotExist(key, providerFun) {
+    if (!objects[key]) {
+        objects[key] = providerFun();
+    }
+    return objects[key];
+}
