@@ -48,6 +48,9 @@ export default class DynamoDb extends Component {
             <Link to={`/dynamoDb/table/${tableName}`}>{tableName}</Link>
           </div>))
         : 'loading ...';
+    if (this.state.tables?.length === 0) {
+      tables = 'There are no tables created yet!';
+    }
 
     return (
       <div>
