@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import * as AWS from 'aws-sdk';
 import * as R from 'ramda';
 import * as AppScope from '../../AppScope';
+import KinesisStream from './KinesisStream/KinesisStream';
+import { Link, Route  } from 'react-router-dom';
 
 export default class Kinesis extends Component {
   state = {
@@ -12,8 +14,8 @@ export default class Kinesis extends Component {
   componentDidMount = () => {
     AppScope.registerIfNotExist('kinesisClient', () =>
       new AWS.Kinesis({
-        apiVersion: '2013-12-02',
-        endpoint: 'http://localhost:4566'
+        apiVersion: '2013-12-02'
+        // endpoint: 'http://127.0.0.1:35154'
       }));
 
     
@@ -32,7 +34,6 @@ export default class Kinesis extends Component {
       if (err) {
         console.log("Error", err.code);
       } else {
-        console.log(data);
         if (!this.state.streams || !R.equals(new Set(this.state.streams), new Set(data.StreamNames))) {
           this.setState({ streams: data.StreamNames });
         }
@@ -44,7 +45,7 @@ export default class Kinesis extends Component {
     let streams = this.state.streams
         ? this.state.streams.map(name => (
           <div key={name}>
-            {name}
+            <Link to={`/kinesis/stream/${name}`}>{name}</Link>
           </div>))
         : 'loading ...';
     if (this.state.streams?.length === 0) {
@@ -55,6 +56,7 @@ export default class Kinesis extends Component {
       <div>
         <h3>Kinesis streams</h3>
         {streams}
+        <Route path="/kinesis/stream/:id" component={KinesisStream} />
       </div>
     );
   }

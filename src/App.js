@@ -14,7 +14,8 @@ function App() {
     region: 'eu-west-1',
     credentials: {
       accessKeyId: 'any',
-      secretAccessKey: 'any'
+      secretAccessKey: 'any',
+      sessionToken: 'any'
     }
   });
   return (

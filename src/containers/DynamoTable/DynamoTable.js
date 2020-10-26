@@ -54,8 +54,13 @@ export default class DynamoTable extends Component {
 
   toItemRow = (item, attributes) => {
       console.log(item);
-  const columns = attributes.map(attribute => (<div>{this.dynaomDbAttributeToString(item[attribute])}</div>));
-    return (<div>{columns}</div>);
+  const style = {
+    marginBottom: '2rem',
+    borderBottom: '1px solid white'
+  }
+
+  const columns = attributes.map(attribute => (<div>{attribute}: {this.dynaomDbAttributeToString(item[attribute])}</div>));
+    return (<div style={style}>{columns}</div>);
   }
 
   dynaomDbAttributeToString = (attr) => {
